@@ -1,8 +1,11 @@
-FROM amazoncorretto:8-alpine3.17-jre
+FROM node:20-alpine
 
-EXPOSE 8080
+RUN mkdir -p /usr/app
+COPY app/* /usr/app/
 
-COPY ./target/jenkins-exercise-*.jar /usr/app/
 WORKDIR /usr/app
+EXPOSE 3000
 
-CMD java -jar jenkins-exercise.jar
+RUN npm install
+CMD ["node", "server.js"]
+
