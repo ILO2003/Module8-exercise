@@ -5,7 +5,6 @@ pipeline{
             steps{
                 script{
                         sh "docker build -t jenkins-exercise:1.0 ."
-                    }
                 }
             }
         }
